@@ -9,7 +9,7 @@ class GuessNumber:
         self.start = 1
         self.end = 100
         self.answer = None
-        self.logPath = 'guessNumberLog'
+        self.logPath = './guessNumberLog.txt'
 
     def start_game(self):
         """开始猜数字游戏"""
@@ -44,7 +44,7 @@ class GuessNumber:
     def output_log(self, log_message: str):
         """记录日志"""
         outputLog.OutputLog(self.logPath, 'a+',
-                            f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}：{log_message}')
+                            f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}：{log_message}\n')
 
 
 if __name__ == '__main__':

@@ -9,7 +9,6 @@ class Crawler:
         self.response = None
         self.url = url
         self.user_agent = user_agent
-        self.logPath = 'crawlerLog'
 
     def get_html(self):
         self.request = request.Request(self.url)
@@ -23,16 +22,18 @@ class Crawler:
         img = re.compile(reg)
         html = response.decode('gbk')
         img_list = re.findall(img, html)
-        for item in img_list:
-            self.output_log(item)
+        return img_list
 
-    def output_log(self, log_message: str):
-        """记录日志"""
-        outputLog.OutputLog(self.logPath, 'a+', log_message)
+    def save_img(self):
+        x = 0
+        for item in self.get_img_url():
+            res = request.urlopen(item).read()
+            outputLog.OutputLog(f'./{x}.jpg', 'wb', res)
+            x += 1
 
 
 if __name__ == '__main__':
     c = Crawler('http://www.4399.com/',
                 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) '
                 'Chrome/85.0.4183.102 Safari/537.36')
-    c.get_img_url()
+    c.save_img()
