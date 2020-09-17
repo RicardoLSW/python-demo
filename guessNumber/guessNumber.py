@@ -21,20 +21,21 @@ class GuessNumber:
                     self.result = int(input(f'请输入{self.start}到{self.end}的数字：'))
                     self.output_log(f'请输入{self.start}到{self.end}的数字：{self.result}')
                     if self.result < self.start or self.result > self.end:
-                        self.output_log('您输入的数字超出范围，请再次尝试输入！')
                         print('您输入的数字超出范围，请再次尝试输入！')
+                        self.output_log('您输入的数字超出范围，请再次尝试输入！')
                         continue
                     elif self.result > self.answer:
                         self.end = self.result
                     elif self.result < self.answer:
                         self.start = self.result
                     else:
-                        self.output_log('猜对了！')
                         print(f'猜对了！答案是：{self.answer}')
-                        self.output_log('游戏结束！')
+                        self.output_log(f'猜对了！答案是：{self.answer}')
                         print('游戏结束！')
+                        self.output_log('游戏结束！')
                         break
                 except ValueError:
+                    print('您输入的不是数字，请再次尝试输入！')
                     self.output_log("您输入的不是数字，请再次尝试输入！")
                     continue
         except (KeyboardInterrupt, EOFError):
