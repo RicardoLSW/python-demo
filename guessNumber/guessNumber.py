@@ -10,7 +10,7 @@ class GuessNumber:
 
     def start_game(self):
         print('猜数字游戏开始')
-        self.answer = random.randint(1, 100)
+        self.answer = random.randint(self.start, self.end)
         while self.result != self.answer:
             try:
                 self.result = int(input(f'请输入{self.start}到{self.end}的数字：'))
