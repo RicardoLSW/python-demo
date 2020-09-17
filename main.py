@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
         crawler.Crawler('http://www.4399.com/',
                         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) '
-                        'Chrome/85.0.4183.102 Safari/537.36').get_html()
+                        'Chrome/85.0.4183.102 Safari/537.36').get_img_url()
     else:
         pass
 

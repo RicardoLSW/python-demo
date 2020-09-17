@@ -1,5 +1,6 @@
 import random
 import datetime
+from outputLog import outputLog
 
 
 class GuessNumber:
@@ -8,7 +9,7 @@ class GuessNumber:
         self.start = 1
         self.end = 100
         self.answer = None
-        self.logPath = './guessNumberLog.txt'
+        self.logPath = 'guessNumberLog'
 
     def start_game(self):
         """开始猜数字游戏"""
@@ -42,9 +43,8 @@ class GuessNumber:
 
     def output_log(self, log_message: str):
         """记录日志"""
-        log_file = open(self.logPath, 'a+')
-        log_file.write(f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}：{log_message}\n')
-        log_file.close()
+        outputLog.OutputLog(self.logPath, 'a+',
+                            f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}：{log_message}')
 
 
 if __name__ == '__main__':
